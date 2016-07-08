@@ -23,7 +23,7 @@ Toggimmer toggles and dims selected lights. Toggimmer is a SmartApp designed to 
 2. Click on the "My SmartApps" section in the navigation bar.
 3. Click the blue "+ New SmartApp" button at the bottom of the page.
 4. Click "From Code".
-5. Paste in the code from "loggimmer.groovy" and hit "Create".
+5. Paste in the code from "toggimmer.groovy" and hit "Create". (https://github.com/ericvitale/ST-Toggimmer/blob/master/smartapps/ericvitale/toggimmer.src/toggimmer.groovy)
 6. Click the "Publish" --> "For Me".
 7. The app will appear on your app under "Marketplace" --> "My Apps"
 
