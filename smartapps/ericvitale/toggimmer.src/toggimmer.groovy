@@ -53,7 +53,7 @@ def mainPage() {
     
 	    section([mobileOnly:true], "Options") {
 			label(title: "Assign a name", required: false)
-            input "logging", "enum", title: "Log Level", required: false, defaultValue: "DEBUG", options: ["TRACE", "DEBUG", "INFO", "WARN", "ERROR"]
+            input "logging", "enum", title: "Log Level", required: true, defaultValue: "DEBUG", options: ["TRACE", "DEBUG", "INFO", "WARN", "ERROR"]
     	}
 	}
 }
