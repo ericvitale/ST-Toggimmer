@@ -1,7 +1,7 @@
 # Toggimmer
 
 ## Summary
-Toggimmer is a SmartApp designed to work with wireless switches like the Cooper RF9500 that operater wirelessly only and are not wired into your lights. Toggimmer allows you to select 1 to many dimmers and control 1 to many dimmable lights without having to worry about keeping these dimmers in sync with each other or the lights. You can 100% replicate the functionality of this SmartApp with something like CoRE. The reason for this apps existance is that I felt something as powerful as CoRE was overkill for this kind of function.
+Toggimmer is a SmartApp designed to work with wireless switches like the Cooper RF9500 (link to device handler below) that operater wirelessly only and are not wired into your lights. Toggimmer allows you to select 1 to many dimmers and control 1 to many dimmable lights without having to worry about keeping these dimmers in sync with each other or the lights. You can 100% replicate the functionality of this SmartApp with something like CoRE. The reason for this apps existance is that I felt something as powerful as CoRE was overkill for this kind of function.
 
 ## Installation via GitHub Integration
 1. Open SmartThings IDE in your web browser and log into your account.
@@ -28,3 +28,6 @@ Toggimmer is a SmartApp designed to work with wireless switches like the Cooper 
 1. Dimmers
 2. Lights
 3. Log Level - Enter: TRACE, DEBUG, INFO, WARN, ERROR
+
+## Cooper RF9500 Beast Device Handler
+https://github.com/ericvitale/ST-CooperRF9500Beast
