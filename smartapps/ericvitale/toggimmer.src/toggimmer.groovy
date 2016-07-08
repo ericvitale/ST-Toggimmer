@@ -30,7 +30,7 @@ definition(
 	name: "Toggimmer",
 	namespace: "ericvitale",
 	author: "ericvitale@gmail.com",
-	description: "Control wireless dimmers like the Cooper RF9500 that operater wirelessly only and are not wired into your lights.",
+	description: "Toogle (On / Off) & dim wireless dimmers like the Cooper RF9500 that operater wirelessly only and are not wired into your lights.",
 	category: "My Apps",
 	iconUrl: "https://s3.amazonaws.com/smartapp-icons/Convenience/Cat-Convenience.png",
 	iconX2Url: "https://s3.amazonaws.com/smartapp-icons/Convenience/Cat-Convenience%402x.png"
