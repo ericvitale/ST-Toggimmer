@@ -2,6 +2,7 @@
  *  Toggimmer v2
  *  Version 1.0.0 - 07/07/16
  *
+ *  2.0.1 - Added icon.
  *  2.0.0 - Parent Child App
  *  1.0.0 - Initial release
  *
@@ -34,9 +35,9 @@ definition(
     author: "Eric Vitale",
     description: "Toogle (On / Off) & dim wireless dimmers like the Cooper RF9500 that operater wirelessly only and are not wired into your lights.",
     category: "",
-    iconUrl: "https://s3.amazonaws.com/smartapp-icons/Convenience/Cat-Convenience.png",
-    iconX2Url: "https://s3.amazonaws.com/smartapp-icons/Convenience/Cat-Convenience@2x.png",
-    iconX3Url: "https://s3.amazonaws.com/smartapp-icons/Convenience/Cat-Convenience@2x.png")
+    iconUrl: "https://s3.amazonaws.com/ev-public/st-images/toggimmer-1x.png",
+    iconX2Url: "https://s3.amazonaws.com/ev-public/st-images/toggimmer-2x.png",
+    iconX3Url: "https://s3.amazonaws.com/ev-public/st-images/toggimmer-3x.png")
 
 
 preferences {
