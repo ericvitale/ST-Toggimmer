@@ -182,10 +182,10 @@ def switchHandler(evt) {
 	lights.each { it->
     	if(it.currentValue("switch") == "on") {
         	it.off()
-            log("${it.label} -- Turned off.", "INFO")
+            log("${it.label} -- Turned off.", "DEBUG")
         } else {
         	it.on()
-            log("${it.label} -- Turned on.", "INFO")
+            log("${it.label} -- Turned on.", "DEBUG")
         }
     }
 	log("End switchHandler(evt).", "DEBUG")
@@ -194,15 +194,15 @@ def switchHandler(evt) {
 def levelHandler(evt) {
 	log("Begin levelHandler(evt).", "DEBUG")
     
-    log("evt.value = ${evt.value}.", "INFO")
-    log("state.sw = ${state.sw[evt.displayName]}.", "INFO")
+    log("evt.value = ${evt.value}.", "DEBUG")
+    log("state.sw = ${state.sw[evt.displayName]}.", "DEBUG")
     
     if(compareValue(evt.value, "${state.sw[evt.displayName]}")) {
-    	log("UP", "INFO")
+    	log("UP", "DEBUG")
         state.sw[evt.displayName] = evt.value
         setDimmers("UP")
     } else {
-    	log("DOWN", "INFO")
+    	log("DOWN", "DEBUG")
         state.sw[evt.displayName] = evt.value
         setDimmers("DOWN")
     }
@@ -263,20 +263,6 @@ def getNextValue(direction, currentValue) {
         	return 100
         }
     }
-    
-    /*if(direction.toUpperCase() == "DOWN") {
-    	if(currentValue > 9) {
-        	return (currentValue - 10)
-        } else {
-        	return 0
-        }
-    } else if(direction.toUpperCase() == "UP") {
-    	if(currentValue < 91) {
-        	return (currentValue + 10)
-        } else {
-        	return 100
-        }
-    }*/
     
     log("End getNextValue()", "DEBUG")
 }
