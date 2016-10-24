@@ -2,9 +2,10 @@
  *  Toggimmer v2
  *  Version 1.0.0 - 07/07/16
  *
+ *  2.0.2 - Updated next value calculation. 10/25/2016
  *  2.0.1 - Added icon.
- *  2.0.0 - Parent Child App
- *  1.0.0 - Initial release
+ *  2.0.0 - Parent Child App.
+ *  1.0.0 - Initial release.
  *
  *
  *  Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except
@@ -57,7 +58,7 @@ def startPage() {
 def parentPage() {
 	return dynamicPage(name: "parentPage", title: "", nextPage: "", install: false, uninstall: true) {
         section("Create a new child app.") {
-            app(name: "childApps", appName: appName(), namespace: "ericvitale", title: "New Roku Automation", multiple: true)
+            app(name: "childApps", appName: appName(), namespace: "ericvitale", title: "New Toggimmer Automation", multiple: true)
         }
     }
 }
@@ -193,6 +194,9 @@ def switchHandler(evt) {
 def levelHandler(evt) {
 	log("Begin levelHandler(evt).", "DEBUG")
     
+    log("evt.value = ${evt.value}.", "INFO")
+    log("state.sw = ${state.sw[evt.displayName]}.", "INFO")
+    
     if(compareValue(evt.value, "${state.sw[evt.displayName]}")) {
     	log("UP", "INFO")
         state.sw[evt.displayName] = evt.value
@@ -214,7 +218,6 @@ def setDimmers(direction) {
         def newVal = getNextValue(direction, currentVal)
         it.setLevel(newVal.toInteger())
     }
-    
     log("End setDimmers(val)", "DEBUG")
 }
 
@@ -227,75 +230,53 @@ def getNextValue(direction, currentValue) {
     
 	def result = ""
     
-	if(direction.toUpperCase() == "DOWN") {
-    	switch(currentValue.toInteger()) {
-        	case 100..86:
-            	result = "80"
-                break
-            case 85..66:
-            	result = "60"
-                break
-            case 65..46:
-            	result = "40"
-                break
-            case 45..26:
-            	result = "25"
-                break
-            case 25..21:
-            	result = "20"
-              	break
-            case 20..16:
-            	result = "15"
-            	break
-            case 15..11:
-            	result = "10"
-            	break
-            case 10..6:
-            	result = "5"
-                break
-            case 5..0:
-            	result = "0"
-                break
-            
-            default: 
-            	result = "0"
+    if(direction.toUpperCase() == "DOWN") {
+    	if(currentValue > 80) {
+        	return 80
+        } else if(currentValue > 60) {
+        	return 60
+        } else if(currentValue > 40) {
+        	return 40
+        } else if(currentValue > 20) {
+        	return 20
+        } else if(currentValue > 10) {
+        	return 10
+        } else if(currentValue > 5) {
+        	return 5
+        } else {
+        	return 0
         }
-        return result
-    } else {
-    	switch(currentValue.toInteger()) {
-        	case 100..80:
-            	result = "100"
-                break
-            case 79..60:
-            	result = "80"
-                break
-            case 59..40:
-            	result = "60"
-                break
-            case 39..25:
-            	result = "40"
-                break
-            case 24..20:
-            	result = "25"
-              	break
-            case 19..15:
-            	result = "20"
-            	break
-            case 14..10:
-            	result = "15"
-            	break
-            case 9..5:
-            	result = "10"
-                break
-            case 4..0:
-            	result = "5"
-                break
-            
-            default: 
-            	result = "100"
+    } else if(direction.toUpperCase() == "UP") {
+    	if(currentValue < 5) {
+        	return 5
+        } else if(currentValue < 10) {
+        	return 10
+        } else if(currentValue < 20) {
+        	return 20
+        } else if(currentValue < 40) {
+        	return 40
+        } else if(currentValue < 60) {
+        	return 60
+        } else if(currentValue < 80) {
+        	return 80
+        } else {
+        	return 100
         }
-        return result
     }
+    
+    /*if(direction.toUpperCase() == "DOWN") {
+    	if(currentValue > 9) {
+        	return (currentValue - 10)
+        } else {
+        	return 0
+        }
+    } else if(direction.toUpperCase() == "UP") {
+    	if(currentValue < 91) {
+        	return (currentValue + 10)
+        } else {
+        	return 100
+        }
+    }*/
     
     log("End getNextValue()", "DEBUG")
 }
